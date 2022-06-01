@@ -44,28 +44,7 @@ what "faster" really means
 3. Clicking the button will generate next epoque of simulation.
 4. Map tiles are coloured in certain manner:
 
-<div style="display:flex">
-    <div style="width:100px">
-        <div style="background-color:red; width:100px; height:50px"></div>
-        <div style="margin: 0 auto; width: fit-content">Dead</div>
-    </div>
-    <div style="width:100px">
-        <div style="background-color:#fffe00; width:100px; height:50px"></div>
-        <div style="margin: 0 auto; width: fit-content">Sick</div>
-    </div>
-    <div style="width:100px">
-        <div style="background-color:blue; width:100px; height:50px"></div>
-        <div style="margin: 0 auto; width: fit-content">Vaccinated</div>
-    </div>
-    <div style="width:100px">
-        <div style="background-color:#00ff00; width:100px; height:50px"></div>
-        <div style="margin: 0 auto; width: fit-content">Convalescent</div>
-    </div>
-    <div style="width:100px">
-        <div style="background-color:green; width:100px; height:50px"></div>
-        <div style="margin: 0 auto; width: fit-content">Healthy</div>
-    </div>
-</div>
+<img src="resources/scale.png" alt="scale">
 
 #### Unfortunately model parameters cannot be set in gui - in order to change them you have to manually set them in _frontend/Window.cpp_.
 
