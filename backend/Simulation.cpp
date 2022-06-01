@@ -9,26 +9,22 @@ Simulation::Simulation(Board board, int vaccine_invention_speed, int simulation_
 }
 
 void Simulation::simulate() {
-    bool vaccine_invented = false;
-    for (int t = 0; t < simulation_length; ++t) {
+    if (!vaccine_invented) vaccine_invented = invent_vaccine();
 
-        if (!vaccine_invented) vaccine_invented = invent_vaccine();
+    for (int i = 1; i < board.get_size(); ++i) {
+        for (int j = 1; j < board.get_size(); ++j) {
 
-        for (int i = 1; i < board.get_size(); ++i) {
-            for (int j = 1; j < board.get_size(); ++j) {
-
-                if (board[i][j].can_be_infected()) {
-                    if (vaccine_invented) {
-                        if (!board[i][j].vaccinate())
-                            board[i][j].get_infected();
-                    }
-                    else board[i][j].get_infected();
+            if (board[i][j].can_be_infected()) {
+                if (vaccine_invented) {
+                    if (!board[i][j].vaccinate())
+                        board[i][j].get_infected();
                 }
+                else board[i][j].get_infected();
+            }
 
-                if (board[i][j].get_state() == State::SICK) {
-                    if (board[i][j].recover())
-                        board[i][j].die();
-                }
+            if (board[i][j].get_state() == State::SICK) {
+                if (board[i][j].recover())
+                    board[i][j].die();
             }
         }
     }
@@ -61,4 +57,8 @@ int Simulation::rand_switch() {
 
 Board Simulation::get_board() {
     return board;
+}
+
+int Simulation::get_simulation_length() const {
+    return simulation_length;
 }

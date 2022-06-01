@@ -13,7 +13,7 @@ public:
     const Person* operator[](std::size_t) const;
 private:
     Person** grid;
-    int size = 100;
+    int size = 50;
 };
 
 

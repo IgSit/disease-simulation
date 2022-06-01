@@ -10,10 +10,12 @@ public:
     ~Simulation() = default;
     void simulate();
     Board get_board();
+    [[nodiscard]] int get_simulation_length() const;
 private:
     Board board;
     int vaccine_invention_speed;
     int simulation_length;
+    bool vaccine_invented = false;
 private:
     void start_disease(int cases);
     [[nodiscard]] bool invent_vaccine() const;
