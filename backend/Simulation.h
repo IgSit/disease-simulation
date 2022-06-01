@@ -15,12 +15,14 @@ private:
     Board board;
     int vaccine_invention_speed;
     int simulation_length;
+    int day = 1;
     bool vaccine_invented = false;
 private:
     void start_disease(int cases);
     [[nodiscard]] bool invent_vaccine() const;
     static float rand_float();
     static int rand_switch();
+    void get_infected(int, int);
 };
 
 

@@ -1,19 +1,19 @@
 #include "Person.h"
 
 float Person::calc_infection_prob(Disease disease) const {
-    return (float) ((age / 100) ^ 2 * disease.contagiousness);
+    return (((float) age / 100) * (float) disease.contagiousness);
 }
 
 float Person::calc_death_prob(Disease disease) const {
-    return (float) ((age / 100) ^ 3 * disease.fatality);
+    return  (((float) age / 100) * 0.95f * (float) disease.fatality);
 }
 
 float Person::calc_recovery_prob(Disease disease) const {
-    return (float) ((age / 100) ^ 2 / disease.cure_difficulty);
+    return  (((float)age / 100) * 0.69f / (float) disease.cure_difficulty);
 }
 
 float Person::calc_vaccination_prob(Disease disease) const {
-    return (float) ((age / 100) ^ 3 / disease.vaccine_aversion);
+    return  (((float) age / 100) * 0.8f / (float) disease.vaccine_aversion);
 }
 
 double Person::get_random_number(double a, double b) {

@@ -1,9 +1,15 @@
 #include "Window.h"
 
 Window::Window(QWidget *parent) : QMainWindow(parent) {
-    Disease disease = *(new Disease(1, 1, 1, 1));
+    Disease disease = *(new Disease(1, 1, 5, 4));
     Board board = *(new Board(disease));
-    simulation = *(new Simulation(board, 50, 100));
+    simulation = *(new Simulation(board, 4, 100));
+
+    auto* button = new QPushButton(tr("Step"));
+    const QSize BUTTON_SIZE = QSize(100, 50);
+    button->setMinimumSize(BUTTON_SIZE);
+    connect(button, &QPushButton::released, this, &Window::simulate);
+    button->show();
 }
 
 void Window::paintEvent(QPaintEvent *event) {
@@ -26,4 +32,9 @@ Qt::GlobalColor Window::chooseColor(Person person) {
         case SICK: return Qt::yellow;
         case DEAD: return Qt::red;
     }
+}
+
+void Window::simulate() {
+        update();
+        simulation.simulate();
 }
