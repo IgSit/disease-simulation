@@ -6,7 +6,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-
 find_package(Qt5 COMPONENTS
         Core
         Gui
@@ -16,6 +15,7 @@ find_package(Qt5 COMPONENTS
 add_executable(disease_simulation main.cpp backend/Board.cpp backend/Board.h backend/Person.cpp backend/Person.h backend/State.h
         backend/Disease.cpp backend/Disease.h backend/Simulation.h backend/Simulation.cpp
         frontend/Window.cpp frontend/Window.h)
+
 target_link_libraries(disease_simulation
         Qt5::Core
         Qt5::Gui

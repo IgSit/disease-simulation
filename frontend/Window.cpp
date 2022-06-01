@@ -1,9 +1,12 @@
 #include "Window.h"
 
 Window::Window(QWidget *parent) : QMainWindow(parent) {
-    Disease disease = *(new Disease(1, 1, 5, 4));
+    int contagiousness = 1, fatality = 1, cure_difficulty = 5, vaccine_aversion = 4;
+    int vaccine_invention_speed = 4, simulation_length = 100;
+
+    Disease disease = *(new Disease(contagiousness, fatality, cure_difficulty, vaccine_aversion));
     Board board = *(new Board(disease));
-    simulation = *(new Simulation(board, 4, 100));
+    simulation = *(new Simulation(board, vaccine_invention_speed, simulation_length));
 
     auto* button = new QPushButton(tr("Step"));
     const QSize BUTTON_SIZE = QSize(100, 50);
